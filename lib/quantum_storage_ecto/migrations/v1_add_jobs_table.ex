@@ -1,4 +1,4 @@
-defmodule QuantumStorageEcto.Migrations.AddJobsTable do
+defmodule QuantumStorageEcto.Migrations.V1AddJobsTable do
   use Ecto.Migration
 
   def up do
@@ -13,9 +13,15 @@ defmodule QuantumStorageEcto.Migrations.AddJobsTable do
 
       timestamps()
     end
+
+    create_if_not_exists table(:quantum_last_execution_date, primary_key: false) do
+      add :id, :string, primary_key: true
+      add :last_execution_date, :naive_datetime, null: true
+    end
   end
 
   def down do
     drop table(:quantum_jobs)
+    drop table(:quantum_last_execution_date)
   end
 end
