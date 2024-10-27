@@ -1,7 +1,5 @@
 import Config
 
-# config :quantum_storage_ecto, QuantumStorageEcto.Repo, priv: "lib/quantum_storage_ecto"
-
 config :quantum_storage_ecto,
   ecto_repos: [QuantumStorageEcto.Repo],
   generators: [timestamp_type: :utc_datetime]
