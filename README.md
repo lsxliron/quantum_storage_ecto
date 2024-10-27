@@ -39,14 +39,16 @@ mix ecto.gen.migration adding_quantum_storage_ecto
 
 #### Edit the newly created migration file
 ```elixir
-use Ecto.Migration
-
-def up do
-QuantumStorageEcto.Migrations.V1AddJobsTable.up()
-end
-
-def down do
-QuantumStorageEcto.Migrations.V1AddJobsTable.down()
+defmodule MyApp.Repo.Migrations.AddQuantumJobs do
+  use Ecto.Migration
+  
+  def up do
+  QuantumStorageEcto.Migrations.V1AddJobsTable.up()
+  end
+  
+  def down do
+  QuantumStorageEcto.Migrations.V1AddJobsTable.down()
+  end
 end
 ```
 #### Migrate
