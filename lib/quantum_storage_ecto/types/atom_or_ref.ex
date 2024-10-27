@@ -2,6 +2,13 @@ defmodule QuantumStorageEcto.Types.AtomOrRef do
   use Ecto.Type
   alias QuantumStorageEcto.Types
 
+  @moduledoc """
+  Implements and Ecto type that allows to save a value if its an atom or reference
+  Handle with care
+
+  Reference: https://hexdocs.pm/ecto/Ecto.Type.html
+  """
+
   def type(), do: :string
 
   def cast(value) when is_reference(value) do

@@ -1,6 +1,11 @@
 defmodule QuantumStorageEcto.Types.Reference do
   use Ecto.Type
 
+  @moduledoc """
+  Implements and Ecto type that allows to save references to a database
+
+  Reference: https://hexdocs.pm/ecto/Ecto.Type.html
+  """
   def type, do: :string
 
   def cast(value) when is_reference(value), do: {:ok, value}
