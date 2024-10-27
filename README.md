@@ -1,6 +1,6 @@
 # QuantumStorageEcto
 
-**TODO: Add description**
+**Quantum Storage Adapter based on Ecto**
 
 ## Installation
 
@@ -15,7 +15,21 @@ def deps do
 end
 ```
 
-Documentation can be generated with [ExDoc](https://github.com/elixir-lang/ex_doc)
-and published on [HexDocs](https://hexdocs.pm). Once published, the docs can
-be found at <https://hexdocs.pm/quantum_storage_ecto>.
+## How to Use?
 
+Simply add QuantumStorageEcto in Quantum config.
+You must provide the `Repo` module that should be used by the storage adapter
+
+```elixir
+config :my_app, MyApp.Scheduler,
+  storage: QuantumStorageEcto,
+  storage_opts: [
+    repo: QuantumTestApp.Repo,
+  ]
+```
+
+## Testing
+To run the full test suite:
+```sh
+mix test
+```
