@@ -43,11 +43,11 @@ defmodule MyApp.Repo.Migrations.AddQuantumJobs do
   use Ecto.Migration
   
   def up do
-  QuantumStorageEcto.Migrations.V1AddJobsTable.up()
+    QuantumStorageEcto.Migrations.V1AddJobsTable.up()
   end
   
   def down do
-  QuantumStorageEcto.Migrations.V1AddJobsTable.down()
+    QuantumStorageEcto.Migrations.V1AddJobsTable.down()
   end
 end
 ```
