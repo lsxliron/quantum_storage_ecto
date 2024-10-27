@@ -23,6 +23,9 @@ defmodule QuantumStorageEcto.Job do
     :task
   ]
 
+  @typedoc """
+  An Ecto representation of a `Quantum.Job`
+  """
   @type t :: %__MODULE__{
           __meta__: Ecto.Schema.Metadata.t(),
           name: atom() | reference(),
