@@ -84,8 +84,6 @@ defmodule QuantumStorageEcto.Jobs do
       job
       |> Map.from_struct()
       |> Map.drop([:__meta__, :inserted_at, :updated_at])
-      |> update_in([:run_strategy], &:erlang.binary_to_term/1)
-      |> update_in([:task], &:erlang.binary_to_term/1)
 
     struct!(Quantum.Job, params)
   end
