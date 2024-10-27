@@ -1,7 +1,7 @@
 defmodule QuantumStorageEcto.Job do
   use Ecto.Schema
   import Ecto.Changeset
-  alias QuantumStorageEcto.Types.{Atom, AtomOrRef}
+  alias QuantumStorageEcto.Types.{Atom, AtomOrRef, Term}
 
   @moduledoc """
   Ecto compatible type for a `Quantum.Job`
@@ -40,10 +40,10 @@ defmodule QuantumStorageEcto.Job do
   schema "quantum_jobs" do
     field :name, AtomOrRef, primary_key: true
     field :overlap, :boolean, default: true
-    field :run_strategy, :string
+    field :run_strategy, Term
     field :schedule, Crontab.CronExpression.Ecto.Type
     field :state, Ecto.Enum, values: [:active, :inactive], default: :active
-    field :task, :binary
+    field :task, Term
     field :timezone, Atom, default: :utc
 
     timestamps()
