@@ -17,27 +17,25 @@ defmodule QuantumStorageEcto do
   ```
 
   ## Running the migrations
-  1. Create a new migration file in your application
-     ```sh
-     mix ecto.gen.migration adding_quantum_storage_ecto
-     ```
+  #### Create a new migration file in your application
+  ```sh
+  mix ecto.gen.migration adding_quantum_storage_ecto
+  ```
 
-  2. Edit the newly created migration file
-     ```elixir
-    use Ecto.Migration
-
-    def up do
-      QuantumStorageEcto.Migrations.V1AddJobsTable.up()
-    end
-
-    def down do
-      QuantumStorageEcto.Migrations.V1AddJobsTable.down()
-    end
-    ```
-  3. migrate
-     ```sh
-     mix ecto.migrate
-     ```
+  #### Edit the newly created migration file
+  ```elixir
+  use Ecto.Migration
+  def up do
+    QuantumStorageEcto.Migrations.V1AddJobsTable.up()
+  end
+  def down do
+    QuantumStorageEcto.Migrations.V1AddJobsTable.down()
+  end
+  ```
+  #### Migrate
+  ```sh
+  mix ecto.migrate
+  ```
 
 
 

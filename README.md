@@ -31,27 +31,28 @@ config :my_app, MyApp.Scheduler,
 ```
 
 ## Running the migrations
-1. Create a new migration file in your application
-    ```sh
-    mix ecto.gen.migration adding_quantum_storage_ecto
-    ```
 
-2. Edit the newly created migration file
-    ```elixir
-  use Ecto.Migration
+#### Create a new migration file in your application
+```sh
+mix ecto.gen.migration adding_quantum_storage_ecto
+```
 
-  def up do
-    QuantumStorageEcto.Migrations.V1AddJobsTable.up()
-  end
+#### Edit the newly created migration file
+```elixir
+use Ecto.Migration
 
-  def down do
-    QuantumStorageEcto.Migrations.V1AddJobsTable.down()
-  end
-  ```
-3. migrate
-    ```sh
-    mix ecto.migrate
-    ```
+def up do
+QuantumStorageEcto.Migrations.V1AddJobsTable.up()
+end
+
+def down do
+QuantumStorageEcto.Migrations.V1AddJobsTable.down()
+end
+```
+#### Migrate
+```sh
+mix ecto.migrate
+```
 
 ## Testing
 To run the full test suite:
