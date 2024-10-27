@@ -1,0 +1,7 @@
+{
+  "skip_files": [
+    "test",
+    "lib/quantum_storage_ecto/migrations",
+    "lib/quantum_storage_ecto/types"
+  ]
+}
