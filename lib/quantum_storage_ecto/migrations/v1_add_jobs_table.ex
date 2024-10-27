@@ -1,5 +1,6 @@
 defmodule QuantumStorageEcto.Migrations.V1AddJobsTable do
   use Ecto.Migration
+  @moduledoc false
 
   def up do
     create_if_not_exists table(:quantum_jobs, primary_key: false) do

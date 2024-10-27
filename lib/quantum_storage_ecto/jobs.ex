@@ -2,6 +2,10 @@ defmodule QuantumStorageEcto.Jobs do
   alias QuantumStorageEcto.Job
   @dialyzer [{:nowarn_function, insert: 2}]
 
+  @moduledoc """
+  Functions to interact with the job model
+  """
+
   @doc """
   Inserts a job to the database.
 

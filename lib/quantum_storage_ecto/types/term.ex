@@ -3,7 +3,10 @@ defmodule QuantumStorageEcto.Types.Term do
 
   @moduledoc """
   Implements and Ecto type that allows to save any elixir term to a database
-  Handle with care
+  > #### Warning {: .warning}
+  >
+  > Handle with care, there is no guard validation since every term can be converted to a binary
+
 
   Reference: https://hexdocs.pm/ecto/Ecto.Type.html
   """

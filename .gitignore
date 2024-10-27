@@ -27,3 +27,4 @@ quantum_storage_ecto-*.tar
 
 # language server
 .elixie_ks
+.DS_Store
