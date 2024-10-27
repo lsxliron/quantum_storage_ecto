@@ -2,6 +2,7 @@ defmodule QuantumStorageEcto.Server do
   use GenServer
   require Logger
   alias QuantumStorageEcto.Jobs
+  alias QuantumStorageEcto.ExecutionDates
 
   @moduledoc """
   This GenServer is an implementation fo `Quantum.Storage` and contains
@@ -22,7 +23,7 @@ defmodule QuantumStorageEcto.Server do
   @impl GenServer
   def init(opts) do
     repo = Keyword.get(opts, :repo)
-    {:ok, %{repo: repo, last_execution_time: DateTime.utc_now()}}
+    {:ok, %{repo: repo, last_execution_date: :unknown}}
   end
 
   @impl GenServer
@@ -85,8 +86,17 @@ defmodule QuantumStorageEcto.Server do
   end
 
   @impl GenServer
-  def handle_cast({:update_last_execution_date, last_execution_date}, state) do
-    {:noreply, state |> Map.put(:last_execution_time, last_execution_date)}
+  def handle_cast({:update_last_execution_date, last_execution_date}, %{repo: repo} = state) do
+    Logger.debug("updating last execution date with #{inspect(last_execution_date)}")
+
+    case ExecutionDates.upsert(last_execution_date, repo) do
+      {:ok, %QuantumStorageEcto.ExecutionDate{last_execution_date: date}} ->
+        {:noreply, state |> Map.put(:last_execution_date, date)}
+
+      {:error, reason} ->
+        Logger.error("failed to update execution date: #{inspect(reason)}")
+        {:noreply, state}
+    end
   end
 
   @impl GenServer
@@ -96,7 +106,15 @@ defmodule QuantumStorageEcto.Server do
   end
 
   @impl GenServer
-  def handle_call(:last_execution_date, _from, %{last_execution_time: led} = state) do
-    {:reply, led, state}
+  def handle_call(:last_execution_date, _from, %{repo: repo, last_execution_date: nil} = state) do
+    case ExecutionDates.get(repo) do
+      nil -> {:reply, :unknown, state}
+      value -> {:reply, value, state}
+    end
+  end
+
+  @impl GenServer
+  def handle_call(:last_execution_date, _from, %{last_execution_date: date} = state) do
+    {:reply, date, state}
   end
 end
