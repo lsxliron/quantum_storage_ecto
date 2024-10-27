@@ -52,8 +52,8 @@ defmodule QuantumStorageEcto.Jobs do
   - `repo` - the repo module that should be use to communicate with the database
   """
 
-  @spec full_update(job :: Job.t(), repo: module()) ::
-          {:ok, Job.t()} | {:error, Ecto.Changeset.t()}
+  @spec full_update(job :: Job.t(), repo :: module()) ::
+          {:ok, Job.t()} | {:error, Ecto.Changeset.t() | String.t()}
   def full_update(job, repo) do
     case repo.get(Job, job.name) do
       nil ->
