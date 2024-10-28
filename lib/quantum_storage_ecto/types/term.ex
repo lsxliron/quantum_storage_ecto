@@ -18,7 +18,6 @@ defmodule QuantumStorageEcto.Types.Term do
   end
 
   def load(value) do
-    dbg(:erlang.binary_to_term(value))
     {:ok, :erlang.binary_to_term(value)}
   end
 
