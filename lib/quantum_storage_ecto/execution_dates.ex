@@ -2,6 +2,8 @@ defmodule QuantumStorageEcto.ExecutionDates do
   alias QuantumStorageEcto.ExecutionDate
   require Logger
 
+  @dialyzer [{:nowarn_function, upsert: 2}]
+
   @id "last_execution_date"
 
   @doc """
@@ -9,7 +11,7 @@ defmodule QuantumStorageEcto.ExecutionDates do
   """
   @spec get(repo :: module) :: NaiveDateTime.t() | nil
   def get(repo) do
-    case ExecutionDate |> repo.get("last_execution_date") do
+    case ExecutionDate |> repo.get(@id) do
       nil -> :unknown
       %ExecutionDate{last_execution_date: date} -> date
     end
