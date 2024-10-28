@@ -114,6 +114,6 @@ defmodule QuantumStorageEcto.Jobs do
   @spec update(job_name :: atom() | reference(), attrs :: map(), repo :: module()) ::
           {:ok, Job.t()} | {:error, Ecto.Changeset.t()}
   def update(job, attrs, repo) do
-    repo.get(Job, job) |> Job.changeset(attrs) |> repo.update
+    repo.get(Job, job) |> Job.update_changeset(attrs) |> repo.update
   end
 end

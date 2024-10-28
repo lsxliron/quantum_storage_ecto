@@ -56,12 +56,31 @@ defmodule QuantumStorageEcto.Job do
   def changeset(job, attrs \\ %{}) do
     encoded_attrs =
       attrs
-      |> update_in([:task], &:erlang.term_to_binary/1)
-      |> update_in([:run_strategy], &:erlang.term_to_binary/1)
+      |> encode(:task)
+      |> encode(:run_strategy)
 
     job
     |> cast(encoded_attrs, @fields)
-    |> validate_required(@fields)
     |> validate_required(@required_fields)
+  end
+
+  def encode(attrs, field) do
+    if Map.has_key?(attrs, field) do
+      attrs
+      |> update_in([field], &:erlang.term_to_binary/1)
+    else
+      attrs
+    end
+  end
+
+  def update_changeset(job, attrs \\ %{}) do
+    encoded_attrs =
+      attrs
+      |> encode(:task)
+      |> encode(:run_strategy)
+
+    job
+    |> cast(encoded_attrs, @fields)
+    |> validate_required([:name])
   end
 end
