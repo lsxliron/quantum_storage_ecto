@@ -19,6 +19,7 @@ defmodule QuantumStorageEcto.MixProject do
       "coveralls.cobertura": :test
       ],
     name: "Quantum Storage Ecto",
+    description: "Quantum Storage Adapter based on Ecto",
     source_url: "https://github.com/lsxliron/quantum_storage_ecto",
     homepage_url: "https://github.com/lsxliron/quantum_storage_ecto",
     docs: [
