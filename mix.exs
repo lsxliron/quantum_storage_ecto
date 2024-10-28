@@ -13,19 +13,19 @@ defmodule QuantumStorageEcto.MixProject do
       test_coverage: [tool: ExCoveralls],
       preferred_cli_env: [
         coveralls: :test,
-      "coveralls.detail": :test,
-      "coveralls.post": :test,
-      "coveralls.html": :test,
-      "coveralls.cobertura": :test
+        "coveralls.detail": :test,
+        "coveralls.post": :test,
+        "coveralls.html": :test,
+        "coveralls.cobertura": :test
       ],
-    name: "Quantum Storage Ecto",
-    description: "Quantum Storage Adapter based on Ecto",
-    source_url: "https://github.com/lsxliron/quantum_storage_ecto",
-    homepage_url: "https://github.com/lsxliron/quantum_storage_ecto",
-    docs: [
-      main: "QuantumStorageEcto",
-      extras: ["README.md"]
-    ]
+      name: "Quantum Storage Ecto",
+      description: "Quantum Storage Adapter based on Ecto",
+      source_url: "https://github.com/lsxliron/quantum_storage_ecto",
+      homepage_url: "https://github.com/lsxliron/quantum_storage_ecto",
+      docs: [
+        main: "QuantumStorageEcto",
+        extras: ["README.md"]
+      ]
     ]
   end
 
@@ -49,13 +49,12 @@ defmodule QuantumStorageEcto.MixProject do
       {:excoveralls, "~> 0.18", only: :test},
       {:ex_doc, "~> 0.34", only: :dev, runtime: false},
       {:makeup_html, ">= 0.0.0", only: :dev, runtime: false}
-
     ]
   end
 
   defp aliases() do
     [
-      test: ["ecto.create --quiet", "ecto.migrate", "test"],
+      test: ["ecto.create --quiet", "ecto.migrate", "test"]
     ]
   end
 end
