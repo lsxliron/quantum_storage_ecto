@@ -8,7 +8,7 @@ config :quantum_storage_ecto, QuantumStorageEcto.Repo,
   database: "quantum_storage_ecto_test",
   username: "quantum_storage_ecto_test",
   password: "quantum_storage_ecto_test",
-  hostname: "db",
+  hostname: "localhost",
   pool: Ecto.Adapters.SQL.Sandbox,
   pool_size: System.schedulers_online() * 2
 
