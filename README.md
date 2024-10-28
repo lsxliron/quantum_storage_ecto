@@ -1,5 +1,12 @@
 # QuantumStorageEcto
 
+[![Coverage Status](https://coveralls.io/repos/github/lsxliron/quantum_storage_ecto/badge.svg?branch=master)](https://coveralls.io/github/lsxliron/quantum_storage_ecto?branch=master)
+[![Hex.pm Version](http://img.shields.io/hexpm/v/quantum_storage_ecto.svg)](https://hex.pm/packages/quantum_storage_ecto)
+[![Hex docs](http://img.shields.io/badge/hex.pm-docs-green.svg?style=flat)](https://hexdocs.pm/quantum_storage_ecto)
+[![Hex.pm](https://img.shields.io/hexpm/dt/quantum_storage_ecto.svg)](https://hex.pm/packages/quantum_storage_ecto)
+
+
+
 **Quantum Storage Adapter based on Ecto**
 
 ## Installation
