@@ -11,3 +11,11 @@ config :quantum_storage_ecto, QuantumStorageEcto.Repo,
   hostname: "localhost",
   pool: Ecto.Adapters.SQL.Sandbox,
   pool_size: System.schedulers_online() * 2
+
+config :logger, level: :warning
+
+config :quantum_storage_ecto, QuantumStorageEcto.TestScheduler,
+  storage: QuantumStorageEcto,
+  storage_opts: [
+    repo: QuantumStorageEcto.Repo
+  ]
