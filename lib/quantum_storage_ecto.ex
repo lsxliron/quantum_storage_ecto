@@ -2,6 +2,15 @@ defmodule QuantumStorageEcto do
   @moduledoc """
   A storage adapter for `Quantum` based on Ecto
 
+  ## Installation
+  The package can be installed by adding `quantum_storage_ecto` to your list of dependencies in mix.exs:
+
+  ```elixir
+  def deps do
+    [{:quantum_storage_ecto, "~> 0.1.0"}]
+  end
+  ```
+
   ## How to Use?
 
   Simply add `QuantumStorageEcto` in `Quantum` config and run the required migrations.
