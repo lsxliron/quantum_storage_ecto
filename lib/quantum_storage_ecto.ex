@@ -7,7 +7,7 @@ defmodule QuantumStorageEcto do
 
   ```elixir
   def deps do
-    [{:quantum_storage_ecto, "~> 0.1.0"}]
+    [{:quantum_storage_ecto, "~> 0.1"}]
   end
   ```
 

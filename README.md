@@ -16,7 +16,7 @@ The package can be installed by adding `quantum_storage_ecto` to your list of de
 ```elixir
 def deps do
   [
-    {:quantum_storage_ecto, "~> 0.1.0"}
+    {:quantum_storage_ecto, "~> 0.1"}
   ]
 end
 ```
