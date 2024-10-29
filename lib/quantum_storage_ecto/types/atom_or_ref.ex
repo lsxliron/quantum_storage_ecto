@@ -19,6 +19,14 @@ defmodule QuantumStorageEcto.Types.AtomOrRef do
     Types.Atom.cast(value)
   end
 
+  def cast(value) when is_binary(value) do
+    if value |> String.starts_with?("#Reference<") do
+      Types.Reference.cast(value)
+    else
+      Types.Atom.cast(value)
+    end
+  end
+
   def cast(_), do: :error
 
   def load(value) when is_binary(value) do
