@@ -11,7 +11,11 @@ defmodule QuantumStorageEcto.Types.Reference do
   def cast(value) when is_reference(value), do: {:ok, value}
 
   def cast(value) when is_binary(value) do
-    {:ok, value |> String.to_charlist() |> :erlang.list_to_ref()}
+    {:ok,
+     value
+     |> String.replace("#Reference<", "#Ref<")
+     |> String.to_charlist()
+     |> :erlang.list_to_ref()}
   end
 
   def cast(_), do: :error
