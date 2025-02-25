@@ -24,19 +24,27 @@ defmodule QuantumStorageEcto.Types.AtomOrRefTest do
     refute Job |> Repo.get(attrs.name) |> is_nil()
   end
 
+  def add_id_field(attrs), do: attrs |> Map.put(:id, Ecto.UUID.generate())
+
   test "can store atom properly", %{params: attrs} do
-    attrs |> Map.put(:name, :test_job_reference) |> validate()
+    attrs
+    |> Map.put(:name, :test_job_reference)
+    |> add_id_field()
+    |> validate()
   end
 
   test "can store string properly", %{params: attrs} do
-    attrs |> Map.put(:name, "test_job_reference") |> validate()
+    attrs |> Map.put(:name, "test_job_reference") |> add_id_field() |> validate()
   end
 
   test "can store reference properly", %{params: attrs} do
-    attrs |> Map.put(:name, make_ref()) |> validate()
+    attrs |> Map.put(:name, make_ref()) |> add_id_field() |> validate()
   end
 
   test "can store string reference properly", %{params: attrs} do
-    attrs |> Map.put(:name, "#Reference<0.946883141.702808066.133335>") |> validate()
+    attrs
+    |> Map.put(:name, "#Reference<0.946883141.702808066.133335>")
+    |> add_id_field()
+    |> validate()
   end
 end
