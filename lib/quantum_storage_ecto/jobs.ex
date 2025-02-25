@@ -16,7 +16,8 @@ defmodule QuantumStorageEcto.Jobs do
   @spec insert(job_attrs :: map(), repo :: module()) ::
           {:ok, Job.t()} | {:error, Ecto.Changeset.t()}
   def insert(job_attrs, repo) do
-    %Job{} |> Job.changeset(job_attrs) |> repo.insert()
+    attrs = job_attrs |> Map.put(:id, Ecto.UUID.generate())
+    %Job{} |> Job.changeset(attrs) |> repo.insert()
   end
 
   @doc """
@@ -87,7 +88,7 @@ defmodule QuantumStorageEcto.Jobs do
     params =
       job
       |> Map.from_struct()
-      |> Map.drop([:__meta__, :inserted_at, :updated_at])
+      |> Map.drop([:__meta__, :inserted_at, :updated_at, :id])
 
     struct!(Quantum.Job, params)
   end
