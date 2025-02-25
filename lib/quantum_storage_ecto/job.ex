@@ -8,6 +8,7 @@ defmodule QuantumStorageEcto.Job do
   """
 
   @fields [
+    :id,
     :name,
     :overlap,
     :run_strategy,
@@ -28,6 +29,7 @@ defmodule QuantumStorageEcto.Job do
   """
   @type t :: %__MODULE__{
           __meta__: Ecto.Schema.Metadata.t(),
+          id: binary(),
           name: atom() | reference(),
           overlap: boolean(),
           run_strategy: binary(),
@@ -41,6 +43,7 @@ defmodule QuantumStorageEcto.Job do
 
   @primary_key false
   schema "quantum_jobs" do
+    field :id, :binary
     field :name, AtomOrRef, primary_key: true
     field :overlap, :boolean, default: true
     field :run_strategy, Term
